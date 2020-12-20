@@ -7,6 +7,7 @@ import Students from '../views/dashboard/Students'
 import AddRoom from '../views/dashboard/AddRoom'
 import Rooms from '../views/dashboard/Rooms'
 import EditRoom from '../views/dashboard/EditRoom'
+import StudentDetail from '../views/dashboard/StudentDetail';
 Vue.use(VueRouter)
 
 const routes = [
@@ -47,6 +48,11 @@ const routes = [
     path: '/room/edit/:id',
     name: 'EditRoom',
     component: EditRoom
+  },
+  {
+    path: '/student/detail/:id',
+    name: 'StudentDetail',
+    component: StudentDetail
   }
 ]
 
