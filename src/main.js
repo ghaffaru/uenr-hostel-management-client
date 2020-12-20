@@ -5,6 +5,7 @@ import './plugins/bootstrap-vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import VuexPersistence from 'vuex-persist'
 
 import 'popper.js';
 import 'bootstrap';
@@ -15,6 +16,7 @@ import '../src/assets/css/util.css';
 import '../src/assets/js/sb-admin-2.min.js'
 import '../src/assets/css/sb-admin-2.min.css';
 
+import 'vue-search-select/dist/VueSearchSelect.css'
 Vue.config.productionTip = false
 
 new Vue({

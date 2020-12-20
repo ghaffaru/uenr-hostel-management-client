@@ -5,6 +5,7 @@
 
             <div id="content-wrapper" class="d-flex flex-column">
                  <div id="content">
+                   
                     <div>
                        
                         <b-modal id="delete-modal" title="Delete" hide-footer>
@@ -21,6 +22,7 @@
                         </div>
                         <b-form-input v-model="filter" type="search" placeholder="Type to search"></b-form-input>
                         <br />
+                         <b-overlay :show="show" rounded="sm">
                         <b-table striped hover outlined :items="rooms" :filter="filter"
                          :fields="fields"
                          :per-page="perPage"
@@ -38,7 +40,9 @@
                         aria-controls="my-table">
                             
                         </b-pagination>
+                        </b-overlay>
                     </div>
+                    
                 </div>
             </div>
       </div>
@@ -54,10 +58,10 @@ export default {
     components: {
         Aside,
         Toolbar
-        
     },
     data() {
         return {
+            show: false,
             roomNumberToDelete: '',
             roomIdToDelete: '',
             perPage: 10,
@@ -68,14 +72,19 @@ export default {
         }
     },
 
-    mounted() {
+    created() {
+        this.show = true;
         axios.get(`https://uenr-hostel-management-api.herokuapp.com/api/admin/room`, {
             headers: {
                 'Authorization':  `Bearer ${localStorage.token}`
             }
         }).then(response => {
+            this.show = false;
             this.rooms = response.data;
+            this.$store.state.rooms = response.data
+            console.log(this.$store.state.rooms);
         }).catch(err => {
+            this.show = false;
             console.log(err.response.data);
         })
     },
@@ -96,6 +105,7 @@ export default {
 
         editItem(id) {
             console.log('Editting ' + id);
+            this.$router.push(`/room/edit/${id}`);
         },
 
         deleteRoom() {
