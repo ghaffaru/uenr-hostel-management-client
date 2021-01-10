@@ -61,6 +61,11 @@
                                      
                                       <option value="">Program</option>
                                       <option value="BSc Agriculture">Bsc Agriculture</option>
+                                      <option value="BSc Agribusiness">BSc Agribusiness</option>
+                                      <option value="BSc Climate Change and Sustainable Development">BSc Climate Change and Sustainable Development</option>
+                                      <option value="BSc Planning and Sustainability">BSc Planning and Sustainability</option>
+                                      <option value="Diploma Geo-Information Science">Diploma Geo-Information Science</option>
+                                      <option value="Diploma Agriculture">Diploma Agriculture</option>
                                   </select>
                                 </div>
                                 <div class="form-group">
